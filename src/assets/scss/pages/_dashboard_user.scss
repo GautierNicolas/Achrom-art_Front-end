@@ -1,0 +1,28 @@
+.user-dashboard_card_user{
+    
+    background-color: rgb(247, 245, 244);
+    border: 1px solid rgb(194, 188, 188);
+    border-radius: 5px;
+    text-align: center;
+
+    margin: 3rem 1rem 1rem 1rem;
+    padding: 1rem;
+
+    form {
+        height: 100%;
+
+        h3 {
+            font-size: medium;
+        }
+        p {
+            padding: 2rem;
+        }
+        img {
+            margin: 2rem;
+            border-radius: 500px;
+        }
+        button {
+            margin: 1rem
+        }
+    }
+}

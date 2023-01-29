@@ -1,0 +1,35 @@
+#admin-Page {
+
+    margin-top: 3rem;
+    padding-bottom: 3rem;
+
+    .admin-dashboard_card_user{
+        
+        background-color: rgb(247, 245, 244);
+        border: 1px solid rgb(194, 188, 188);
+        border-radius: 5px;
+        text-align: center;
+    
+        padding: 1rem;
+        margin: 1rem 0;
+    
+        form {
+            padding: 1rem;
+            height: 100%;
+    
+            img {
+                width: auto;
+                height: 10rem;
+                border-radius: 500px;
+                margin-right: 3rem;
+            }
+    
+            h3 {
+                font-size: small;
+            }
+            p {
+                padding: 2rem;
+            }
+        }
+    }
+}

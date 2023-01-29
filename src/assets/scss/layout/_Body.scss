@@ -1,0 +1,10 @@
+@import '../abstracts/_variables.scss';
+
+
+
+// Global settings
+
+body {
+    padding-top: $headerPadding;
+    height: 90vh;
+}

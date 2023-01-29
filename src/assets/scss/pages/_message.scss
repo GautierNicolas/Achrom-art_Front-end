@@ -1,0 +1,19 @@
+#message-Page{
+    margin: 3rem 0;
+
+    table {
+        margin: 3rem 0;
+        border: 1px solid black;
+        tr{
+            border: 1px solid black;
+            td{
+                border: 1px solid black;
+                padding: 0.5rem;
+
+                button {
+                    padding: 0.1rem 1rem;
+                }
+            }
+        }
+    }
+}

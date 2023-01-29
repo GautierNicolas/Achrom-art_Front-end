@@ -1,0 +1,25 @@
+#artworks-manager_Page{
+    margin: 3rem 0;
+    .admin-dashboard_card_artwork {
+        margin: 2rem;
+        padding: 1rem;
+        background-color: rgb(247, 245, 244);
+        border: 1px solid rgb(194, 188, 188);
+        border-radius: 5px;
+        text-align: center;
+        img {
+            width: 100%;
+            height: auto;
+        }
+        h3 {
+            font-size: medium;
+            padding: 1rem;
+        }
+        input {
+            padding: 1rem
+        }
+        p {
+            padding: 2rem;
+        }
+    }
+}

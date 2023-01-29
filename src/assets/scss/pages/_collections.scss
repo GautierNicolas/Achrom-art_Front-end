@@ -1,0 +1,105 @@
+.collections-Page {
+    margin-top: 3rem;
+
+    h1{
+        font-size: 2rem;
+    }
+
+    
+
+    .categories-container{
+        padding: 0.5rem;
+        width: 100%;
+
+        h2{
+            font-size: 1.5rem;
+        }
+        ul{
+            background-color: white;
+            border: 1px solid rgb(194, 188, 188);
+            height: 200px;
+            padding: 0;
+            margin: 0;
+
+            a {
+                color: black;
+                font-size: 0.9rem;
+                text-decoration: none;
+                width: 100%;                
+                display: inline-block;            
+                transition: all ease-in-out .2s;
+
+            } :hover {
+                border-bottom: 5px solid #000000;
+            }
+        }
+
+    }
+    .collections-container{
+
+        background-color: rgb(247, 245, 244);
+        border: 1px solid rgb(194, 188, 188);
+        border-radius: 10px;
+        padding: 2rem;
+        display: block;
+        
+
+        .card {
+            border: 1px solid rgb(194, 188, 188);
+            box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            margin: 1rem;
+
+            h2 {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+                margin-top: 1rem;
+            }
+            .card-img {
+                img {
+                    width: 100%;
+                    padding: 1rem;
+                }
+            }
+            .card-text {
+                padding: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .card-text {
+        height: 30vh;
+        overflow-y: scroll;
+        border: 1px solid black;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+}
+
+@media screen and (max-width: 992px) { 
+
+    .categories-container {
+        display: none;
+    }
+    .card-text {
+        height: 30vh;
+        overflow-y: none;
+    }    
+}
+  
+@media screen and (max-width: 768px) {
+
+
+}
+
+@media screen and (max-width: 576px) {
+
+
+}

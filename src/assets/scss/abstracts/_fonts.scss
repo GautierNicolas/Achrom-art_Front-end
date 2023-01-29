@@ -1,0 +1,23 @@
+@import './_variables.scss';
+
+@font-face {
+    font-family: $primaryFont;
+    src: $primaryFontSrc;
+}
+
+@font-face {
+    font-family: $secondaryFont;
+    src: $secondaryFontSrc;
+}
+
+
+*{
+    font-family: "OCR";
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+

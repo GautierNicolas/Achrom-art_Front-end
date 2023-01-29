@@ -1,0 +1,32 @@
+//-----------------------------------
+// ROUTING FILE - IMPORTS SCSS FILES
+//-----------------------------------
+
+// Fonts & Variables
+// @import "abstracts/variables";
+@import "./abstracts/_fonts";
+
+// Base Css
+// @import "theme/base";
+// @import "theme/header";
+// @import "theme/content";
+// @import "theme/buttons";
+// @import "theme/footer";
+
+// Layout
+@import "./layout/_body";
+@import "./layout/_header";
+@import "./layout/_navigation";
+@import "./layout/_footer";
+
+// Pages
+@import "./pages/_home";
+@import "./pages/_login";
+@import "./pages/_collections";
+@import "./pages/_artists";
+@import "./pages/_contact";
+@import "./pages/_dashboard_admin";
+@import "./pages/_dashboard_user";
+@import "./pages/about";
+@import "./pages/artworksManager";
+@import "./pages/message";

@@ -1,0 +1,130 @@
+@import "../abstracts/variables";
+
+#page-home_container {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+
+  #caroussel-container {
+      height: 90vh;
+      margin-right: 2rem;
+      margin-left: 3rem;
+      position: relative;
+      
+  
+      img {
+          height: 100%;
+          width: auto;
+          position: absolute;
+          left: calc(0% - 100px);
+          opacity: 0;
+          animation: img-slide 30s infinite;
+      } 
+      :nth-child(2) {
+          animation-delay: 10s;
+        }
+      :nth-child(3) {
+        animation-delay: 20s;
+      }
+  }
+  #text-container{
+      margin-top: 20%;
+      position: relative;
+      height: 500px;
+      
+      .text-item {
+          
+          top: 50;
+          right: 0;
+          left: calc(0% - 100px);
+          opacity: 0;
+          animation: text-slide 15s both;
+          
+          
+          h1 {
+            font-family: $primaryFont;
+              padding-bottom: 2rem;
+          } 
+                 
+          p{
+              font-family: $secondaryFont;
+              font-size: 1rem;
+          }        
+      }
+  }
+}
+
+// Animation
+
+@keyframes img-slide {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    10% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    20% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(200px);
+      opacity: 0;
+      
+    }
+}
+
+@keyframes text-slide {
+    
+    from {
+    transform: translateY(500px);
+    opacity: 0;
+    }
+    10% {
+    transform: translateY(0);
+    opacity: 1;
+    }
+    to {
+    transform: translateY(0);
+    opacity: 1;
+    }
+}
+
+// Responsive
+@media screen and (max-width: 992px) {
+
+  #page-home_container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    #caroussel-container {
+      height: 60vh;
+      transform: translate(30%, 3%);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #page-home_container {
+
+    #caroussel-container {
+      height: 40vh;    
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  
+  #page-home_container {
+    #caroussel-container {
+      transform: translate(20%, 3%);   
+    }
+    
+  }
+}
