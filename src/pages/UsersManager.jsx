@@ -29,7 +29,7 @@ const UsersManager = () => {
   
   
      //  Envoie les données du formulaire au serveur
-    const response = await fetch("http://localhost:5000/api/v1/users/" + id, {
+    const response = await fetch("http://localhost:5000/api/v1/artists/" + id, {
       method: "PATCH",
       headers: {
           "Content-Type": "application/json",
@@ -55,18 +55,14 @@ const UsersManager = () => {
       alert('Vos informations ont bien été modifiées')
     }
   }; 
-  
-
- 
     
-  
   useEffect(() => {
     const token = localStorage.getItem('jwt');
-    const userRoles = localStorage.getItem('roles');
+    const userRole = localStorage.getItem('role');
 
     (async () => {
       // Récupération des données de la table users
-      const response = await fetch('http://localhost:5000/api/v1/users', {
+      const response = await fetch('http://localhost:5000/api/v1/artists', {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -75,13 +71,13 @@ const UsersManager = () => {
         
         const users = await response.json();
         setUsers(users);
-        setRole(userRoles);
-        if (userRoles !== 'admin') {
+        setRole(userRole);
+        if (userRole !== 'admin') {
           navigate('/');
         }        
       })();
     },[]);
-    console.log(users)
+
     return (
       <>
         <Header />

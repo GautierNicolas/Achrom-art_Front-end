@@ -21,19 +21,19 @@ const ProfilButton = () => {
     // Boutton déconnexion
     const handleDelete = () => {        
         localStorage.removeItem('jwt')
-        localStorage.removeItem('roles')
+        localStorage.removeItem('role')
         localStorage.removeItem('id')
     };
     
     // Identification lier à l'utilisateur
     useEffect(() => {
         const token = localStorage.getItem('jwt');
-        const role = localStorage.getItem('roles');
+        const role = localStorage.getItem('role');
         
         (async () => {
 
             // Récupération des données de la table users
-          const response = await fetch('http://localhost:5000/api/v1/users/' + localStorage.getItem('id'), {
+          const response = await fetch('http://localhost:5000/api/v1/artists/' + localStorage.getItem('id'), {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

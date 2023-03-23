@@ -37,15 +37,15 @@ const Register = () => {
         const loginData = await jwtResponse.json();
         console.log(loginData);
         
-        // si le status est 202 et que le role est user alors on redirige vers la page d'accueil
-        if (jwtResponse.status === 202 && loginData.roles === 'user') {
+        // si le status est 202 et que le role est artist alors on redirige vers la page d'accueil
+        if (jwtResponse.status === 202 && loginData.role === 'artist') {
             localStorage.setItem ('jwt', JSON.stringify(loginData.jwt))
             localStorage.setItem ('id', JSON.stringify(loginData.id))
-            localStorage.setItem ('roles', JSON.stringify(loginData.roles))
+            localStorage.setItem ('role', JSON.stringify(loginData.role))
             navigateTo('/');
             
         } else {
-            alert('Combinaison email et mot de pass incorrecte')
+            alert('Combinaison email et mot de pass incorrecte 2')
             // navigateTo('/login')
         }         
     };

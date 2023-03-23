@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import Header from "../components/Header";
 
 
-const DashboardAdmin = () => {
+const DashboardArtist = () => {
   const [users, setUsers] = useState([]);  
   const [role, setRole] = useState([]);
   const navigate = useNavigate();
@@ -25,11 +25,10 @@ const DashboardAdmin = () => {
     const name          = event.target.name.value;
     const first_name    = event.target.first_name.value;
     const bio           = event.target.bio.value;
-    const img           = event.target.img.value;
-  
+    const img           = event.target.img.value; 
   
      //  Envoie les données du formulaire au serveur
-    const response = await fetch("http://localhost:5000/api/v1/users/" + id, {
+    const response = await fetch("http://localhost:5000/api/v1/artists/" + id, {
       method: "PATCH",
       headers: {
           "Content-Type": "application/json",
@@ -41,7 +40,7 @@ const DashboardAdmin = () => {
               "artist_name"   : artist_name,
               "name"          : name,
               "first_name"    : first_name,
-              "bio"           : bio,
+              "biography"     : bio,
               "img_profil"    : img           
           }),
     });
@@ -49,23 +48,22 @@ const DashboardAdmin = () => {
     const data = await response.json();
   
     // Si data vaut 200 alors on affiche un message de succès
-    if (!data === 200) {
+    if (!data.status === 200) {
       alert('Une erreur est survenue')
     } else {
       alert('Vos informations ont bien été modifiées')
     }
   }
-
   
   useEffect(() => {
-    const token = localStorage.getItem('jwt');
-    const userRoles = localStorage.getItem('roles');
-    const id = localStorage.getItem('id');
+    const token     = localStorage.getItem('jwt');
+    const userrole  = localStorage.getItem('role');
+    const id        = localStorage.getItem('id');
 
     (async () => {
 
       // Récupération des données de la table users
-      const response = await fetch('http://localhost:5000/api/v1/users/' + id, {
+      const response = await fetch('http://localhost:5000/api/v1/artists/' + id, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -74,8 +72,8 @@ const DashboardAdmin = () => {
         
         const users = await response.json();
         setUsers(users);
-        setRole(userRoles);
-        if (userRoles !== 'user') {
+        setRole(userrole);
+        if (userrole !== 'artist') {
           navigate('/');
         }        
       })();
@@ -125,4 +123,4 @@ const DashboardAdmin = () => {
   );
 }
 
-export default DashboardAdmin;
+export default DashboardArtist;

@@ -10,7 +10,7 @@ const DeleteUser = (props) => {
         const token = localStorage.getItem('jwt');
 
 
-        const response = await fetch("http://localhost:5000/api/v1/users/" + id, {
+        const response = await fetch("http://localhost:5000/api/v1/artists/" + id, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -24,7 +24,7 @@ const DeleteUser = (props) => {
         } else {
             alert('L\'utilisateur a bien été supprimé');
         }
-        navigate('/dashboard_admin')
+        navigate('/manage_users')
     };
     return(
         <button onClick={handleDelete}>Supprimé</button>

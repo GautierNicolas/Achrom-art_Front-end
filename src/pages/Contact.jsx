@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router";
-
-
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -11,35 +9,34 @@ const Contact = () => {
         event.preventDefault();
     
         // Récupère les données du formulaire
-        const nameContact = event.target.nameContact.value;
-        const email = event.target.email.value;
-        const phone = event.target.phone.value;
-        const question = event.target.question.value;
+        const nameContact   = event.target.nameContact.value;
+        const email         = event.target.email.value;
+        const phone         = event.target.phone.value;
+        const question      = event.target.question.value;
         
         // Envoie les données au serveur
-        const response = await fetch("http://localhost:5000/api/v1/messages/", {
+        const response = await fetch("http://localhost:5000/api/v1/contact/", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                "name" : nameContact,
-                "email" : email,
-                "phone" : phone,
-                "question" : question
+                "name"      : nameContact,
+                "email"     : email,
+                "phone"     : phone,
+                "question"  : question
             }),
         });
-        const data = await response.json();
-  
-        // Si data vaut 200 alors on affiche un message de succès
-        if (!data === 201) {
+        const data = await response;
+        
+        // Si data vaut 201 alors on affiche un message de succès
+        if (!data.status === 201) {
             alert('Une erreur est survenue')
         } else {
             alert('Votre messages a bien été envoyé');
         }
         navigate('/')
     }
-            
         
     return (
         <>

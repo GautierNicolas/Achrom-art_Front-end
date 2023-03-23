@@ -1,32 +1,32 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useState } from "react-router";
 
 const ShowMessages = (props) => {  
-  const navigate = useNavigate();
-  
+  // const [message, setMessage] = useState([])
+    const navigate = useNavigate();
 
     // fonction qui permet de supprimer un message
     const handleDelete = async (event) => {
+
         const token = localStorage.getItem('jwt');
+        const id    = event.target.parentNode.parentNode.firstChild.id;
 
-        console.log(localStorage)
-        const id = event.target.parentNode.parentNode.firstChild.id;
-
-        const response = await fetch("http://localhost:5000/api/v1/messages/" + id, {
+        const response = await fetch("http://localhost:5000/api/v1/contact/" + id, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           "authorization": 'bearer' + " " + token,
       },});   
       const data = await response.json();
-  
+      
         // Si data vaut 201 alors on affiche un message de succès
         if (!data === 201) {
             alert('Une erreur est survenue')
         } else {
             alert('Le message a bien été supprimé');
-        }
-        navigate('/messages')
+          }
+          navigate('/messages')
     };
+  
     
     
     return (

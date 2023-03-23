@@ -6,26 +6,22 @@ import Footer from '../components/Footer'
 import ShowMessages from '../components/ShowMessages'
 
 const Messages = () => {
-    const token = localStorage.getItem('jwt');
 
-    const [messages, setMessages] = useState([]);
-
+    const token                     = localStorage.getItem('jwt');    
+    const [messages, setMessages]   = useState([]);
+    
     // Je récupère les données de la table
     useEffect(() => {
-      (async () => {
-        
-        const response = await fetch('http://localhost:5000/api/v1/messages', {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "authorization": 'bearer' + " " + token,
-        },});
-          
-          const messages = await response.json();
-          
-          setMessages(messages);
-        
-      })();
+        (async () => {            
+            const response = await fetch('http://localhost:5000/api/v1/contact', {
+            method: "GET",
+            headers: {
+                "Content-Type"  : "application/json",
+                "authorization" : 'bearer' + " " + token,
+            },});          
+            const messages = await response.json();          
+            setMessages(messages);        
+        })();
     }, []);
     
     return(

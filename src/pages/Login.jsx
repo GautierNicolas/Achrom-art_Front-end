@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import GoogleAuth from "../services/GoogleAuth"
 
 const Login = () => {
 
@@ -27,25 +28,21 @@ const Login = () => {
         });
         
         const loginData = await jwtResponse.json();
-        console.log(loginData);
-        
-        if (jwtResponse.status === 202 && loginData.roles === 'user') {
+        if (jwtResponse.status === 202 && loginData.role === 'artist') {
           localStorage.setItem ('jwt', loginData.jwt)
           localStorage.setItem ('id', loginData.id)
-          localStorage.setItem ('roles', loginData.roles)
+          localStorage.setItem ('role', loginData.role)
           navigateTo('/');
 
-        } else if (jwtResponse.status === 202 && loginData.roles === 'admin') {
+        } else if (jwtResponse.status === 202 && loginData.role === 'admin') {
             localStorage.setItem ('jwt', loginData.jwt)
             localStorage.setItem ('id', loginData.id)
-          localStorage.setItem ('roles', loginData.roles)
+          localStorage.setItem ('role', loginData.role)
           navigateTo('/manage_users');
-
         } else {
             alert('Combinaison email et mot de pass incorrecte')
             navigateTo('/login')
-        }         
-
+        }   
     }
    
     return (
@@ -71,6 +68,9 @@ const Login = () => {
                                         <div className="text-center">                                               
                                             <button type="submit" className="btn-login">Connexion</button>
                                             <p>ou <Link  to="/register">S'enregistrer</Link></p>
+                                        </div>
+                                        <div className="text-center">                                               
+                                            <button type="submit" className="btn-login2"><GoogleAuth /></button>
                                         </div>
                                     </form>
                                 </div>
